@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.1.0</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.tanzu</groupId>
+	<artifactId>djl-demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>djl-demo</name>
+	<description>Demo project for DJL and Spring Boot</description>
+	<properties>
+		<java.version>17</java.version>
+		<djl.starter.version>0.20</djl.starter.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-tracing-bridge-brave</artifactId>
+		</dependency>
+		<!-- <dependency>
+			<groupId>ai.djl.spring</groupId>
+			<artifactId>djl-spring-boot-starter-mxnet-auto</artifactId>
+			<version>${djl.starter.version}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>ai.djl.spring</groupId>
+			<artifactId>djl-spring-boot-starter-pytorch-auto</artifactId>
+			<version>${djl.starter.version}</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>ai.djl.spring</groupId>
+			<artifactId>djl-spring-boot-starter-tensorflow-auto</artifactId>
+			<version>${djl.starter.version}</version> 
+		</dependency> -->
+		<dependency>
+			<groupId>ai.djl.spring</groupId>
+			<artifactId>djl-spring-boot-starter-autoconfigure</artifactId>
+			<version>${djl.starter.version}</version>
+		</dependency>
+
+		<dependency>
+			<!-- GoTo http://localhost:8080/v3/api-docs -->
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludeDevtools>false</excludeDevtools>
+					<jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments> 
+				</configuration>
+				<executions>
+					<execution>
+						<id>pre-integration-test</id>
+						<goals>
+							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-integration-test</id>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+					<!-- <execution>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+						<configuration>
+							<additionalProperties>
+								<spring.boot.version>${project.parent.version}</spring.boot.version>
+								<encoding.source>${project.build.sourceEncoding}</encoding.source>
+								<encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
+								<java.source>${maven.compiler.source}</java.source>
+								<java.target>${maven.compiler.target}</java.target>
+							</additionalProperties>
+						</configuration>
+					</execution> -->
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<apiDocsUrl>http://localhost:8080/v3/api-docs</apiDocsUrl>
+					<outputFileName>openapi.json</outputFileName>
+					<outputDir>openapi</outputDir>
+					<skip>false</skip>
+				</configuration>
+			</plugin>
+			<!-- <plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+			</plugin> -->
+		</plugins>
+	</build>
+
+</project>
