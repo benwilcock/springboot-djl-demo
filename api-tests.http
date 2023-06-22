@@ -17,5 +17,13 @@ POST https://springboot-djl-demo-polyglot-demo.tap-next.blah.cloud/api/analyze
 content-Type: application/json
 
 {
-  "sentence": "I like Myles. Myles is the best Platform Engineer I've ever had!"
+  "sentence": "I like Tanzu Application Platform. It's is the best Kubernetes based platform I've ever had!"
+}
+
+###
+POST https://springboot-djl-demo-polyglot-demo.tap-next.blah.cloud/api/analyze 
+content-Type: application/json
+
+{
+  "sentence": "I don't like Dil. Of all the ingredients in all the world, this is the one I avoid the most!"
 }
