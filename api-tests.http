@@ -8,3 +8,11 @@ content-Type: application/json
 {
   "sentence": "I like DJL. DJL is the best DL framework!"
 }
+
+###
+POST http://springboot-djl-demo-polyglot-demo.tap-next.blah.cloud/api/analyze 
+content-Type: application/json
+
+{
+  "sentence": "I like Myles. Myles is the best Platform Engineer I've ever had!"
+}
