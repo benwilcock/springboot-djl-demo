@@ -1,1 +1,75 @@
-{"openapi":"3.0.1","info":{"title":"Messages API","description":"An API for obtaining a sentiment analysis on a message that you provide","version":"0.1-SNAPSHOT"},"servers":[{"url":"https://djl-demo.tap-next.blah.cloud","description":"Spring"}],"tags":[{"name":"Springboot-Maven Deep Java Learing API Demo","description":"An API for obtaining a sentiment analysis on a message that you provide."}],"paths":{},"components":{}}
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Messages API",
+        "description": "An API for obtaining a sentiment analysis on a message that you provide",
+        "version": "0.1-SNAPSHOT"
+    },
+    "servers": [
+        {
+            "url": "https://djl-demo.tap-next.blah.cloud",
+            "description": "Spring"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Springboot-Maven Deep Java Learing API Demo",
+            "description": "An API for obtaining a sentiment analysis on a message that you provide."
+        }
+    ],
+    "paths": {
+        "/api/analyze": {
+            "post": {
+                "tags": [
+                    "Sentence"
+                ],
+                "summary": "Get a sentiment analysis on a sentence of text.",
+                "description": "The API returns a sentiment analysis based on a predefined ML model.",
+                "operationId": "analyze",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Sentence"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "200": {
+                        "description": "A sentiment analysis was performed and the results and are being returned.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "map",
+                                    "description": "The sentiment analysis on the provided sentence.",
+                                    "example": {
+                                        "sentence": "This was your sentence",
+                                        "positive_probability": 0.0,
+                                        "negative_probability": 0.0
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Sentence": {
+                "type": "object",
+                "properties": {
+                    "sentence": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

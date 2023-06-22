@@ -16,7 +16,6 @@ package com.tanzu.djldemo;
 import ai.djl.Application;
 import ai.djl.Device;
 import ai.djl.MalformedModelException;
-import ai.djl.ModelException;
 import ai.djl.inference.Predictor;
 import ai.djl.modality.Classifications;
 import ai.djl.repository.zoo.Criteria;
@@ -53,7 +52,7 @@ public final class SentimentAnalyzer implements SentimentService{
             logger.warn("You must provide a sentence for analysis. You provided {}.", input);
             return Optional.empty();
         }
-        logger.info("input Sentence: {}", input);
+        logger.info("Performing a sentiment analysis on this sentence: '{}'", input.get());
 
         Criteria<String, Classifications> criteria = Criteria.builder()
                 .optApplication(Application.NLP.SENTIMENT_ANALYSIS)
