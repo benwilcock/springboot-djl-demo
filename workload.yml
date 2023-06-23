@@ -29,6 +29,7 @@ spec:
         type: openapi
         location:
           path: "/v3/api-docs"
+        system: "polyglot-demo-apps"
         owner: mapbu-tmm-team
         description: "A set of API endpoints to manage the resources within the petclinic app."
   source:
