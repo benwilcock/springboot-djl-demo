@@ -20,8 +20,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @OpenAPIDefinition( 
-	tags = {@Tag(name = "Springboot-Maven Deep Java Learning API Demo", 
-                 description = "An API for obtaining a sentiment analysis (percentage positive or negative) on a sentence that you provide.")},
+	tags = {@Tag(name = "sentiment-analysis", 
+                 description = "API operations used for obtaining a sentiment analysis.")},
     info = @Info(title = "Sentiment Analysis API", version = "0.1-SNAPSHOT", 
                  description = "An API for obtaining a sentiment analysis (percentage positive or negative) on a sentence that you provide."),
     servers = {
