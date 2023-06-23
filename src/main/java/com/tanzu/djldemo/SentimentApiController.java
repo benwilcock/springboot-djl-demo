@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.tanzu.djldemo.SentimentApiControllerAdvice.ErrorDescription;
 
 import ai.djl.MalformedModelException;
 import ai.djl.modality.Classifications;
@@ -28,7 +29,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
@@ -49,12 +49,14 @@ public class SentimentApiController {
 
     @CrossOrigin 
     @Operation(summary="Get a sentiment analysis on a sentence of text.",description="The API returns a sentiment analysis based on a predefined ML model.",tags={"Sentence"})
-    @ApiResponses(value={
-        @ApiResponse(responseCode="200",description="A sentiment analysis was performed and the results and are being returned.",
-            content=@Content(schema=@Schema(name="analysis",description="The sentiment analysis performed on the provided sentence.",type="map",example="{\"sentence\": \"This was your sentence\",\"positive_probability\": \"0.00000%\",\"negative_probability\": \"0.00000%\"}"))), 
-        @ApiResponse(responseCode="500",description="There was a problem performing the sentiment analysis.",content=@Content(schema=@Schema(name="error",description="There was a problem analyzing the sentiments in the sentence.",type="map",example="{\"error\": \"Your error message will be here.\", \"status\": 500}")))
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json", schema = @Schema(implementation = SentimentAnalysis.class))),
+        @ApiResponse(responseCode = "400", description = "Bad Request"),
+        @ApiResponse(responseCode = "401", description = "Unauthorized"),
+        @ApiResponse(responseCode = "403", description = "Forbidden"),
+        @ApiResponse(responseCode = "404", description = "Not Found"),
+        @ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDescription.class)))
     })
-
     @PostMapping(value = "/analyze", produces = { "application/json" })
     public ResponseEntity<SentimentAnalysis> analyze(@RequestBody Sentence sentence)
             throws MalformedModelException, ModelNotFoundException, IOException, TranslateException {
@@ -107,10 +109,16 @@ public class SentimentApiController {
         return str == null || str.trim().isEmpty() || !str.matches(".*\\w.*");
     }
 
-    record Sentence(@JsonProperty("sentence") String sentence) {
+    @Schema(description = "The sentence to analyze")
+    public record Sentence(
+        @JsonProperty("sentence") String sentence) {
     }
 
-    record SentimentAnalysis(String sentence, String positive_probability, String negative_probability) {
+    @Schema(description = "The result of a sentiment analysis")
+    public record SentimentAnalysis(
+        @Schema(description = "The sentence to analyze") String sentence, 
+        @Schema(description = "The probability that the sentence is positive in the format ##0.00000%") String positive_probability, 
+        @Schema(description = "The probability that the sentence is negative in the format ##0.00000%") String negative_probability) {
     }
 
 }

@@ -16,6 +16,8 @@
 	<description>Demo project for DJL and Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+		<java.source>17</java.source>
+		<java.target>17</java.target>
 		<djl.starter.version>0.20</djl.starter.version>
 	</properties>
 	<dependencies>
@@ -73,7 +75,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<excludeDevtools>false</excludeDevtools>
-					<jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments> 
+					<jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments>
 				</configuration>
 				<executions>
 					<execution>
@@ -88,20 +90,20 @@
 							<goal>stop</goal>
 						</goals>
 					</execution>
-					<!-- <execution>
+					<execution>
 						<goals>
 							<goal>build-info</goal>
 						</goals>
 						<configuration>
-							<additionalProperties>
+							<!-- <additionalProperties>
 								<spring.boot.version>${project.parent.version}</spring.boot.version>
 								<encoding.source>${project.build.sourceEncoding}</encoding.source>
 								<encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
 								<java.source>${maven.compiler.source}</java.source>
 								<java.target>${maven.compiler.target}</java.target>
-							</additionalProperties>
+							</additionalProperties> -->
 						</configuration>
-					</execution> -->
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -123,10 +125,10 @@
 					<skip>false</skip>
 				</configuration>
 			</plugin>
-			<!-- <plugin>
+			<plugin>
 				<groupId>pl.project13.maven</groupId>
 				<artifactId>git-commit-id-plugin</artifactId>
-			</plugin> -->
+			</plugin>
 		</plugins>
 	</build>
 

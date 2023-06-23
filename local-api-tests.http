@@ -28,6 +28,14 @@ content-Type: application/json
   "sentence": "I don't like Dil. Of all the ingredients in all the world, this is the one I avoid the most!"
 }
 
+###
+POST http://localhost:8080/api/analyze 
+content-Type: application/json
+
+{
+  "sentence": "I do like Bananas. But I don't like them too ripe, and I don't like them under-ripe either. They're OK if they're just right."
+}
+
 ### Negative cases
 POST http://localhost:8080/api/analyze 
 content-Type: application/json

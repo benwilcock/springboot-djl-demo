@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ai.djl.MalformedModelException;
 import ai.djl.repository.zoo.ModelNotFoundException;
 import ai.djl.translate.TranslateException;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @ControllerAdvice
 public class SentimentApiControllerAdvice {
@@ -54,5 +55,11 @@ public class SentimentApiControllerAdvice {
                 .body(new ErrorDescription("There was an Illegal Argument exception on the server. Did you pass an empty sentence for analysis?", HttpStatus.INTERNAL_SERVER_ERROR.value()));
     }
 
-    record ErrorDescription(@JsonProperty("error") String error_description, @JsonProperty("status") Integer status){}
+    public record ErrorDescription(
+        @JsonProperty("error") 
+        @Schema(description = "The error description, usually 'error'")
+        String error_description, 
+        @JsonProperty("status") 
+        @Schema(description = "The HTTP Status code for this error.")
+        Integer status){}
 }

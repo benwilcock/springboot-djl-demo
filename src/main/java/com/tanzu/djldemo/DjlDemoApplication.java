@@ -20,12 +20,12 @@ import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @OpenAPIDefinition( 
-	tags = {@Tag(name = "Springboot-Maven Deep Java Learing API Demo", 
-                 description = "An API for obtaining a sentiment analysis on a message that you provide.")},
-    info = @Info(title = "Messages API", version = "0.1-SNAPSHOT", 
-                 description = "An API for obtaining a sentiment analysis on a message that you provide"),
+	tags = {@Tag(name = "Springboot-Maven Deep Java Learning API Demo", 
+                 description = "An API for obtaining a sentiment analysis (percentage positive or negative) on a sentence that you provide.")},
+    info = @Info(title = "Sentiment Analysis API", version = "0.1-SNAPSHOT", 
+                 description = "An API for obtaining a sentiment analysis (percentage positive or negative) on a sentence that you provide."),
     servers = {
-       @Server(url = "https://djl-demo.tap-next.blah.cloud", description = "Spring")
+       @Server(url = "https://springboot-djl-demo-polyglot-demo.tap-next.blah.cloud", description = "Tanzu Application Platform")
     }
 ) 
 
