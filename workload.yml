@@ -6,23 +6,31 @@ metadata:
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
+    apis.apps.tanzu.vmware.com/register-api: "true"
   name: springboot-djl-demo
 spec:
   build:
     env:
-    - name: BP_JVM_VERSION
-      value: "17"
+      - name: BP_JVM_VERSION
+        value: "17"
   params:
-  - name: annotations
-    value:
-      autoscaling.knative.dev/minScale: "1"
-  - name: testing_pipeline_matching_labels
-    value:
-      apps.tanzu.vmware.com/language: java
-      apps.tanzu.vmware.com/pipeline: test
-  - name: testing_pipeline_params
-    value:
-      source-sub-path: .
+    - name: annotations
+      value:
+        autoscaling.knative.dev/minScale: "1"
+    - name: testing_pipeline_matching_labels
+      value:
+        apps.tanzu.vmware.com/language: java
+        apps.tanzu.vmware.com/pipeline: test
+    - name: testing_pipeline_params
+      value:
+        source-sub-path: .
+    - name: api_descriptor
+      value:
+        type: openapi
+        location:
+          path: "/v3/api-docs"
+        owner: mapbu-tmm-team
+        description: "A set of API endpoints to manage the resources within the petclinic app."
   source:
     git:
       ref:
