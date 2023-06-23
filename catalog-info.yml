@@ -40,7 +40,7 @@ metadata:
       icon: github
       type: source
   annotations:
-    backstage.io/kubernetes-label-selector: "app.kubernetes.io/part-of=sspringboot-djl-demo"
+    backstage.io/kubernetes-label-selector: "app.kubernetes.io/part-of=springboot-djl-demo"
     # backstage.io/techdocs-ref: url:https://github.com/benwilcock/springboot-djl-demo/blob/main/
 spec:
   type: openapi
@@ -48,5 +48,5 @@ spec:
   owner: group:mambg-tmm-team
   system: polyglot-demo-apps
   definition:
-    $text: https://github.com/benwilcock/mambg-tmm-team/blob/main/openapi/openapi.json
+    $text: https://github.com/benwilcock/springboot-djl-demo/blob/main/openapi/openapi.json
 ---
