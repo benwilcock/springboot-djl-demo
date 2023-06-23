@@ -5,6 +5,11 @@ kind: Component
 metadata:
   name: springboot-djl-demo
   description: Spring Boot Deep Java Learning (ML) Demo
+  links:
+    - url: https://github.com/benwilcock/springboot-djl-demo
+      title: Source Code on GitHub
+      icon: github
+      type: source
   tags:
     - java
     - spring
@@ -15,4 +20,33 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: mambg-tmm-team
+  system: polyglot-demo-apps
+  owner: user:ben.wilcock
+  providesApis:
+    - sentiments-api
+  profile:
+    displayName: Sentiment Analysis Demo Application
+
+# APIs
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: sentiments-api
+  description: Used to perform sentiment analysis using a REST style API.
+  links:
+    - url: https://github.com/benwilcock/springboot-djl-demo
+      title: Source Code on GitHub
+      icon: github
+      type: source
+  annotations:
+    backstage.io/kubernetes-label-selector: "app.kubernetes.io/part-of=sspringboot-djl-demo"
+    # backstage.io/techdocs-ref: url:https://github.com/benwilcock/springboot-djl-demo/blob/main/
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:mambg-tmm-team
+  system: polyglot-demo-apps
+  definition:
+    $text: https://github.com/benwilcock/mambg-tmm-team/blob/main/openapi/openapi.json
+---
