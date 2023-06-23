@@ -1,7 +1,7 @@
 # GET http://localhost:8080/api/analyze
 # content-Type: application/json
 
-GET https://springboot-djl-demo-polyglot-demo.tap-next.blah.cloud/v3/api-docs 
+GET http://localhost:8080/v3/api-docs 
 content-Type: application/json
 
 ###
@@ -13,7 +13,7 @@ content-Type: application/json
 }
 
 ###
-POST https://springboot-djl-demo-polyglot-demo.tap-next.blah.cloud/api/analyze 
+POST http://localhost:8080/api/analyze 
 content-Type: application/json
 
 {
@@ -21,9 +21,17 @@ content-Type: application/json
 }
 
 ###
-POST https://springboot-djl-demo-polyglot-demo.tap-next.blah.cloud/api/analyze 
+POST http://localhost:8080/api/analyze 
 content-Type: application/json
 
 {
   "sentence": "I don't like Dil. Of all the ingredients in all the world, this is the one I avoid the most!"
+}
+
+### Negative cases
+POST http://localhost:8080/api/analyze 
+content-Type: application/json
+
+{
+  "sentence": ""
 }

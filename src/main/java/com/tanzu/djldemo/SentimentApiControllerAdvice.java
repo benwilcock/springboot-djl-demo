@@ -7,9 +7,12 @@ import javax.naming.ServiceUnavailableException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import ai.djl.MalformedModelException;
 import ai.djl.repository.zoo.ModelNotFoundException;
@@ -19,7 +22,6 @@ import ai.djl.translate.TranslateException;
 public class SentimentApiControllerAdvice {
 
     private static final Logger LOG = LoggerFactory.getLogger(SentimentApiControllerAdvice.class);
-
 
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Model is malformed")
     @ExceptionHandler(MalformedModelException.class)
@@ -44,4 +46,13 @@ public class SentimentApiControllerAdvice {
     public void handleException(IOException e) {
         LOG.error("There was a problem performing the sentiment analysis.", e);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorDescription> handleException(IllegalArgumentException e) {
+        LOG.error("There was a problem performing the sentiment analysis.", e);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ErrorDescription("There was an Illegal Argument exception on the server. Did you pass an empty sentence for analysis?", HttpStatus.INTERNAL_SERVER_ERROR.value()));
+    }
+
+    record ErrorDescription(@JsonProperty("error") String error_description, @JsonProperty("status") Integer status){}
 }
