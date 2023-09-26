@@ -25,7 +25,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
     info = @Info(title = "Sentiment Analysis API", version = "0.1-SNAPSHOT", 
                  description = "An API for obtaining a sentiment analysis (percentage positive or negative) on a sentence that you provide."),
     servers = {
-       @Server(url = "https://springboot-djl-demo-polyglot-demo.tap-next.blah.cloud", description = "Tanzu Application Platform")
+       @Server(url = "https://springboot-djl-demo.polyglot-demo.tap-next.blah.cloud", description = "Tanzu Application Platform")
     }
 ) 
 

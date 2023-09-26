@@ -2,8 +2,6 @@ package com.tanzu.djldemo;
 
 import java.io.IOException;
 
-import javax.naming.ServiceUnavailableException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
