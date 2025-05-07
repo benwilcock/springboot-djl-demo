@@ -19,6 +19,8 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
+// TODO: Add some class level documentation
+
 @OpenAPIDefinition( 
 	tags = {@Tag(name = "sentiment-analysis", 
                  description = "API operations used for obtaining a sentiment analysis.")},
