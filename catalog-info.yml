@@ -17,7 +17,7 @@ metadata:
     - tanzu
   annotations:
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=springboot-djl-demo'
-    'backstage.io/todo': true # required to get the todo component working?
+    'backstage.io/todo': "true" # required to get the todo component working?
 spec:
   type: service
   lifecycle: experimental
