@@ -8,6 +8,8 @@ import ai.djl.modality.Classifications;
 import ai.djl.repository.zoo.ModelNotFoundException;
 import ai.djl.translate.TranslateException;
 
+// TODO: Document this service that obtains sentiment predictions.
+
 public interface SentimentService {
 
     public abstract Optional<Classifications> predict(Optional<String> input)

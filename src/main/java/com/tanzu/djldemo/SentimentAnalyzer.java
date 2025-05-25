@@ -40,6 +40,9 @@ import java.util.Optional;
  * "https://github.com/deepjavalibrary/djl/blob/master/examples/docs/sentiment_analysis.md">doc</a>
  * for information about this example.*
  */
+
+// TODO: Document this algorithm that predicts the sentiment (good or bad) in an item of text.
+
 @Service
 public final class SentimentAnalyzer implements SentimentService{
 
