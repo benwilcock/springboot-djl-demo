@@ -24,14 +24,9 @@ metadata:
 
     This demonstration application typically exposes a **RESTful API** built with Spring Web. Users can interact with this API to:
 
-    1.  **Submit Data:** Send input data, such as images, text, or structured data, to specific endpoints.
-    2.  **Trigger ML Inference:** The Spring Boot controller receives the request and passes the data to a service layer. This service layer then utilizes DJL to load a pre-trained (or custom-trained) ML model.
-    3.  **Perform Predictions:** DJL's predictor interface processes the input data using the loaded model to generate predictions. This could involve tasks like:
-        * **Image Classification:** Identifying objects or scenes in an image (e.g., classifying X-ray images, identifying products).
-        * **Object Detection:** Locating and identifying multiple objects within an image.
-        * **Natural Language Processing (NLP):** Performing sentiment analysis, text generation, or question answering.
-        * **Tabular Data Prediction:** Making forecasts or classifications based on structured data.
-    4.  **Return Results:** The predictions are formatted and returned to the user via the API, typically in a standard format like JSON.
+    1.  **Submit Data:** Send input text, to the endpoint.
+    2.  **Analyse Data:** The Spring Boot controller receives the request and passes the data to a service layer. This service layer then utilizes DJL to analyse the text for sentiment (good or bad) using a pre-trained (or custom-trained) ML model.
+    3.  **Return Results:** The predictions are formatted and returned to the user via the API, typically in a standard format like JSON.
 
     ### Learning and Demonstration Value 💡
 
