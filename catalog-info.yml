@@ -4,7 +4,45 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: springboot-djl-demo
-  description: Spring Boot Deep Java Learning (ML) Demo
+  description: |
+
+    ## Spring Boot Machine Learning Demo with Deep Java Library (DJL)
+
+    This application serves as a practical demonstration of integrating **modern machine learning capabilities** into the robust and widely-used **Spring Boot framework**, leveraging the power and flexibility of the **Deep Java Library (DJL)**. It showcases how Java developers can build and deploy high-performance, scalable applications that incorporate sophisticated ML models without needing deep expertise in underlying ML frameworks or Python.
+
+    ### Core Technologies
+
+    * **Spring Boot:** At its foundation, the application utilizes Spring Boot to simplify the development of **stand-alone, production-grade Spring-based applications**. It provides features like auto-configuration, embedded web servers (like Tomcat or Netty), and a rich set of starters, enabling developers to quickly set up a web service or a microservice. In this context, Spring Boot provides the **API layer**, handling incoming requests, processing them, and interacting with the machine learning backend.
+
+    * **Deep Java Library (DJL):** DJL acts as the bridge between the Java world and the complex landscape of deep learning frameworks (such as **TensorFlow, PyTorch, and Apache MXNet**). It offers a **high-level, engine-agnostic API**, allowing Java developers to load, run inference on, and even train deep learning models using familiar Java concepts. Key advantages include:
+    * **Engine Agnosticism:** Write code once and run it with different ML engines.
+    * **Ease of Use:** Abstracts away many complexities of native ML frameworks.
+    * **Model Zoo:** Provides access to a wide range of pre-trained models for various tasks.
+    * **Performance:** Designed for efficient inference, including support for GPU acceleration.
+
+    ### Application Functionality
+
+    This demonstration application typically exposes a **RESTful API** built with Spring Web. Users can interact with this API to:
+
+    1.  **Submit Data:** Send input data, such as images, text, or structured data, to specific endpoints.
+    2.  **Trigger ML Inference:** The Spring Boot controller receives the request and passes the data to a service layer. This service layer then utilizes DJL to load a pre-trained (or custom-trained) ML model.
+    3.  **Perform Predictions:** DJL's predictor interface processes the input data using the loaded model to generate predictions. This could involve tasks like:
+        * **Image Classification:** Identifying objects or scenes in an image (e.g., classifying X-ray images, identifying products).
+        * **Object Detection:** Locating and identifying multiple objects within an image.
+        * **Natural Language Processing (NLP):** Performing sentiment analysis, text generation, or question answering.
+        * **Tabular Data Prediction:** Making forecasts or classifications based on structured data.
+    4.  **Return Results:** The predictions are formatted and returned to the user via the API, typically in a standard format like JSON.
+
+    ### Learning and Demonstration Value 💡
+
+    This application provides a valuable resource for:
+
+    * **Java Developers:** Learning how to integrate ML into their existing skill set and applications.
+    * **Data Scientists:** Understanding how their models can be deployed in a robust, enterprise-grade Java environment.
+    * **Architects:** Evaluating a production-ready stack for serving ML models within a microservices architecture.
+
+    It demonstrates a **seamless workflow** from API request to ML prediction and back, highlighting the benefits of combining Spring Boot's rapid development capabilities with DJL's accessible and powerful machine learning features, enabling the creation of intelligent Java applications.
+
   links:
     - url: https://github.com/benwilcock/springboot-djl-demo
       title: Source Code on GitHub
@@ -28,7 +66,7 @@ spec:
   providesApis:
     - sentiments-api
   profile:
-    displayName: Sentiment Analysis Demo Application
+    displayName: ML Sentiment Analysis Demo
 
 # APIs
 ---
