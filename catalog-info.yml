@@ -21,7 +21,7 @@ metadata:
     'github.com/project-slug': 'benwilcock/springboot-djl-demo'
     'jenkins.io/job-full-name': 'benwilcock-org/springboot-sentiment-demo'
 spec:
-  type: service
+  type: component
   lifecycle: experimental
   system: system:default/red-hat-developer-hub
   owner: user:default/benwilcock
