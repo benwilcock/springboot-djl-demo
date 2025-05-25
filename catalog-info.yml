@@ -18,11 +18,13 @@ metadata:
   annotations:
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=springboot-djl-demo'
     'backstage.io/todo': "true" # required to get the todo component working?
+    'github.com/project-slug': 'benwilcock/springboot-djl-demo'
+    'jenkins.io/job-full-name': 'benwilcock-org/springboot-sentiment-demo'
 spec:
   type: service
   lifecycle: experimental
-  system: polyglot-demo-apps
-  owner: user:ben.wilcock
+  system: system:default/red-hat-developer-hub
+  owner: user:default/benwilcock
   providesApis:
     - sentiments-api
   profile:
@@ -46,8 +48,8 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: group:mambg-tmm-team
-  system: polyglot-demo-apps
+  owner: user:default/benwilcock
+  system: system:default/red-hat-developer-hub
   definition:
     $text: https://github.com/benwilcock/springboot-djl-demo/blob/main/openapi/openapi.json
 ---
