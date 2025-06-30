@@ -53,6 +53,8 @@ metadata:
     'backstage.io/todo': "true" # required to get the todo component working?
     'github.com/project-slug': 'benwilcock/springboot-djl-demo'
     'jenkins.io/job-full-name': 'benwilcock-org/springboot-sentiment-demo'
+    'feedback/type': 'MAIL'
+    'feedback/email-to': 'example@example.com'
 spec:
   type: component
   lifecycle: experimental
