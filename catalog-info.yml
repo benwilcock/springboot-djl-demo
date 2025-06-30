@@ -49,6 +49,7 @@ metadata:
     - web
     - tanzu
   annotations:
+    'backstage.io/techdocs-ref': dir:.
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=springboot-djl-demo'
     'backstage.io/todo': "true" # required to get the todo component working?
     'github.com/project-slug': 'benwilcock/springboot-djl-demo'

@@ -1,0 +1,6 @@
+site_name: 'springboot-djl-demo'
+site_description: 'A demo project for using Spring Boot with DJL (Deep Java Library) for machine learning.'
+site_author: user:bwilcock
+
+nav:
+  - About: 'index.md'
