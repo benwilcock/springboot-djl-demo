@@ -1,6 +1,6 @@
 # Spring Boot Sentiment Analysis Demo
 
-I wrote this quick demo to show how to build a sentiment analysis microservice. The service will take any sentence and five tou a sentiment analysis for that sentence. The service communicates via a REST API like so:
+I wrote this quick demo to show how to build a sentiment analysis microservice. The service will take any sentence and give you a sentiment analysis for that sentence. The service communicates via a REST API like so:
 
 ```text
 POST http://localhost:8080/api/analyze 

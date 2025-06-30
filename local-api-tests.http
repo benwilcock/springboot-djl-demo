@@ -17,7 +17,7 @@ POST http://localhost:8080/api/analyze
 content-Type: application/json
 
 {
-  "sentence": "I like Tanzu Application Platform. It's is the best Kubernetes based platform I've ever had!"
+  "sentence": "I like Red Hat Developer Hub. It's is the best internal developer portal I've ever used!"
 }
 
 ###
@@ -25,7 +25,7 @@ POST http://localhost:8080/api/analyze
 content-Type: application/json
 
 {
-  "sentence": "I don't like Dil. Of all the ingredients in all the world, this is the one I avoid the most!"
+  "sentence": "I hate Dil. Of all the herbs in all the world, this is the one I avoid the most!"
 }
 
 ###

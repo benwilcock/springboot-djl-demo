@@ -45,28 +45,31 @@ The application will start on [http://localhost:8080](http://localhost:8080).
 
 ### Example Endpoint
 
-- **POST** `/predict`
-  - Accepts: Image or data payload (see API docs)
-  - Returns: Prediction result
+- **POST** `/api/analyze`
+  - Accepts: JSON
+  - Returns: Sentiment prediction
 
 #### Sample Request
 
-```bash
-curl -X POST -F 'file=@image.jpg' http://localhost:8080/predict
+```json
+{
+  "sentence": "string"
+}
 ```
 
 #### Sample Response
 
 ```json
 {
-  "prediction": "cat",
-  "probability": 0.98
+  "sentence": "string",
+  "positive_probability": "string",
+  "negative_probability": "string"
 }
 ```
 
 ## Configuration
 
-You can configure model paths and other settings in `application.properties`.
+You can configure `djl.application-type: SENTIMENT_ANALYSIS` in `application.properties`.
 
 ## Troubleshooting
 
@@ -76,10 +79,6 @@ You can configure model paths and other settings in `application.properties`.
 ## Contributing
 
 Contributions are welcome! Please open issues or submit pull requests.
-
-## License
-
-This project is licensed under the MIT License.
 
 ---
 
