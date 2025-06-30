@@ -60,7 +60,7 @@ spec:
   type: component
   lifecycle: experimental
   system: system:default/red-hat-developer-hub
-  owner: user:default/bwilcock
+  owner: user:default/benwilcock
   providesApis:
     - sentiments-api
   profile:
@@ -84,7 +84,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: user:default/bwilcock
+  owner: user:default/benwilcock
   system: system:default/red-hat-developer-hub
   definition:
     $text: https://github.com/benwilcock/springboot-djl-demo/blob/main/openapi/openapi.json
